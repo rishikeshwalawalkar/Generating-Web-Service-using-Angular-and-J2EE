@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html ng-app = "app">
+<head>
+<meta charset="ISO-8859-1">
+    <link data-require="bootstrap-css@3.3.6" data-semver="3.3.6" rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.css" />
+    <script data-require="angular.js@1.5.3" data-semver="1.5.3" src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.3/angular.min.js"></script>
+	<script src="script.js"></script>
+<title>Insert title here</title>
+</head>
+<body ng-controller = "startcntrl" ng-init="init()">
+<br>
+<Header class="jumbotron" style="text-align: center;"><h1>Book Store</h1></Header>
+<form action = "OperationServlet?action=add" method="post" class="form-group form-inline">
+Author Name : <input type = "text" id = "author" name = "bookAuthor" class="form-control"/>
+Title : <input type = "text" id = "name" name="bookTitle" class="form-control"/>
+Price : <input type = "number" id = "price" name = "bookPrice" class="form-control"/>
+<input type = "submit" value = "SUBMIT" class="btn btn-primary btn-success" />
+</form>
+<div height = 100px>
+<table class="table table-bordered table-hover table-condensed table-responsive table-striped">
+	<tr>
+	<th>ID</th>
+	<th>Author</th>
+	<th>Title</th>
+	<th>Price</th>
+	<th>Action</th>
+	</tr>
+	<tr ng-repeat = "data in info">
+	<td>{{data.id}}</td>
+	<td>{{data.author}}</td>
+	<td>{{data.title}}</td>
+	<td>{{data.price}}</td>
+	<td><button ng-click="deletebook(data.id)" class="btn btn-primary btn-danger">Delete</button></td>
+	</tr>
+</table>
+</div>
+</body>
+</html>
